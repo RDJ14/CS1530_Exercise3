@@ -1,0 +1,29 @@
+
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+dependencies {
+  testCompile 'junit:junit:4.10'
+}
+repositories {
+    mavenLocal()
+    jcenter()
+}
+mainClassName = "IntegerSequence"
+
+task sequencehelp << {
+  println "Integer Sequence Project"
+  println "Given an integer n as an argument, displays tri(n) and LC(n)"
+}
+
+run {
+  try{
+    systemProperties System.getProperties()
+    args System.getProperty("args").split()
+    }
+    catch(Exception e)
+    {
+    println "Please add -Dargs"
+    }
+  }
